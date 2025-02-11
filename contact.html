@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/img/icons8_controller_64px.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Personal Web</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div class="main-menu">
+        <ul class="navbar-links">
+          <img id="logo" src="assets/img/logo.png" alt="logo" />
+          <li>
+            <a href="index.html" class="menu-active">Home</a>
+          </li>
+          <li><a href="blog.html">blog</a></li>
+        </ul>
+        <a class="nav-contact-button" href="contact.html">Contact Me</a>
+      </div>
+      <div class="mobile-menu">
+        <img id="logo" src="assets/img/logo.png" alt="logo" />
+        <button id="hamburger-button" class="hamburger-button">☰</button>
+      </div>
+    </nav>
+    <div id="mobile-menu-list" class="mobile-menu-list mobile-menu-hide">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="menu-active">Contact Me</a>
+    </div>
+
+    <!-- form -->
+    <form class="contact-form" action="" onsubmit="submitForm(event)">
+      <h1>Contact Me</h1>
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="Email">Email</label>
+        <input id="Email" type="text" placeholder="Email" required />
+      </div>
+
+      <div class="form-field">
+        <label for="subject">subject</label>
+        <input id="subject" type="text" placeholder="subject" required />
+      </div>
+
+      <div class="form-field">
+        <label for="Skill">Skill</label>
+        <select name="" id="Skill" required>
+          <option value="" disabled selected>Select your skill</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Fullstak">Fullstack</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="Message">Message</label>
+        <textarea
+          name=""
+          id="Message"
+          placeholder="Message"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <script src="assets/js/belajar-js.js"></script>
+      <script src="assets/js/contact.js"></script>
+      <script src="assets/js/navbar.js"></script>
+    </form>
+  </body>
+</html>
