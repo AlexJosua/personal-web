@@ -5,54 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/img/icons8_controller_64px.png" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      href="assets/css/bootstrap/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+
     <title>Personal Web</title>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="assets/img/icons8_controller_64px.png"
-            alt="Personal Web"
-            width="50"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">Testimonials</a>
-            </li>
-          </ul>
-          <a class="btn btn-bluewhite" href="contact.html">Contact Me</a>
-        </div>
+    <nav>
+      <div class="main-menu">
+        <ul class="navbar-links">
+          <img id="logo" src="assets/img/logo.png" alt="logo" />
+          <li>
+            <a href="index.html" class="menu-active">Home</a>
+          </li>
+          <li><a href="blog.html">blog</a></li>
+          <li>
+            <a href="testimonial.html">testimonial</a>
+          </li>
+        </ul>
+        <a class="nav-contact-button" href="contact.html">Contact Me</a>
+      </div>
+      <div class="mobile-menu">
+        <img id="logo" src="assets/img/logo.png" alt="logo" />
+        <button id="hamburger-button" class="hamburger-button">☰</button>
       </div>
     </nav>
+    <div id="mobile-menu-list" class="mobile-menu-list mobile-menu-hide">
+      <a href="index.html" class="menu-active">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact Me</a>
+    </div>
 
     <main class="main-content">
       <!-- profile-card -->
@@ -72,14 +53,16 @@
             similique dolor cumque eligendi, magni culpa! Debitis quam eius
             ipsam cumque totam.
           </p>
-          <table class="table table-striped table-hover">
+          <table class="profile-table">
             <tr>
-              <th scope="col">Experience</th>
-              <th scope="col">Year</th>
+              <th style="border-style: solid">Experience</th>
+              <th style="border-style: solid">Year</th>
             </tr>
             <tr>
-              <td>Develoment Personal Website</td>
-              <td>2025</td>
+              <td style="border-style: solid; text-align: center">
+                Develoment Personal Website
+              </td>
+              <td style="border-style: solid; text-align: center">2025</td>
             </tr>
           </table>
         </div>
@@ -151,10 +134,5 @@
     </main>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/learning/6.encapsulation.js"></script>
-    <script
-      src="assets/js/bootsrap/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
