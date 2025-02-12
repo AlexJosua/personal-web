@@ -28,7 +28,7 @@ const testimonialsHTML = (array) => {
     .map(
       (testimonials) => `
         <article>
-          <img src="assets/img/${testimonials.image}" alt="testimonial-image" />
+          <img src="/img/${testimonials.image}" alt="testimonial-image" />
           <p class="testimonial-item-caption">"${testimonials.caption}"</p>
           <p style="text-align: right">"${testimonials.author}"</p>
           <p style="text-align: right; font-weight: bold">${testimonials.rating}★</p>
