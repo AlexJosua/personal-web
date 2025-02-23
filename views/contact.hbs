@@ -1,34 +1,5 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/img/icons8_controller_64px.png" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>Personal Web</title>
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav>
-      <div class="main-menu">
-        <ul class="navbar-links">
-          <img id="logo" src="/img/logo.png" alt="logo" />
-          <li>
-            <a href="index.html" class="menu-active">Home</a>
-          </li>
-          <li><a href="blog.html">blog</a></li>
-        </ul>
-        <a class="nav-contact-button" href="contact.html">Contact Me</a>
-      </div>
-      <div class="mobile-menu">
-        <img id="logo" src="/img/logo.png" alt="logo" />
-        <button id="hamburger-button" class="hamburger-button">☰</button>
-      </div>
-    </nav>
-    <div id="mobile-menu-list" class="mobile-menu-list mobile-menu-hide">
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html" class="menu-active">Contact Me</a>
-    </div>
+{{#> layout currentPage= "Contact"}}
 
     <!-- form -->
     <form class="contact-form" action="" onsubmit="submitForm(event)">
@@ -74,5 +45,5 @@
       <script src="/js/contact.js"></script>
       <script src="/js/navbar.js"></script>
     </form>
-  </body>
-</html>
+    
+{{/layout}}
