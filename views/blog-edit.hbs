@@ -1,18 +1,18 @@
-{{#> layout currentPage= "createBlog"}}
+{{#> layout currentPage= "editBlog"}}
 
-<!-- CREATE BLOG -->
-<form id="create-blog" action="/blog-create" method="post" class="create-blog-form">
-  <h1>Buat Blog Baru</h1>
+<!-- edit BLOG -->
+<form id="create-blog" action="/blog-update/{{index}}?_method=PATCH" method="post" class="create-blog-form">
+  <h1>Edit Blog Baru</h1>
   <div class="input-group mb-3">
     <!-- <span class="input-group-text">Title</span> -->
     <input name="title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="title"
-      placeholder="Title" id="title" required />
+      placeholder="Title" id="title" value="{{blog.title}}" required />
   </div>
 
   <div class="input-group mb-3">
     <!-- <span class="input-group-text">Content</span> -->
     <textarea name="content" class="form-control" aria-label="Content" id="content" rows="6" placeholder="Content"
-      required></textarea>
+      required>{{blog.content}}</textarea>
   </div>
 
   <div class="input-group mb-3">

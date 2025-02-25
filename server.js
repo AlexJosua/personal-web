@@ -1,11 +1,21 @@
 const { equal } = require("assert");
 const express = require("express");
 const app = express();
-const port = 3000;
 const hbs = require("hbs");
 const path = require("path");
+const methodOverride = require("method-override");
 
+const {
+  renderBlog,
+  renderBlogDetail,
+  renderBlogEdit,
+  createBlogs,
+  updateBlog,
+  deleteBlog,
+} = require("./controllers/controller-v1");
 const { formatDateToWIB, getRelativeTime } = require("./utils/time");
+
+const port = 3000;
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views"));
@@ -13,6 +23,7 @@ app.set("views", path.join(__dirname, "./views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
+app.use(methodOverride("_method"));
 
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 hbs.registerHelper("equal", function (a, b) {
@@ -21,8 +32,6 @@ hbs.registerHelper("equal", function (a, b) {
 
 hbs.registerHelper("formatDateToWIB", formatDateToWIB);
 hbs.registerHelper("getRelativeTime", getRelativeTime);
-
-let blogs = [];
 
 // HALAMAN HOME
 app.get("/", (req, res) => {
@@ -35,41 +44,27 @@ app.get("/index", (req, res) => {
   res.render("index");
 });
 
-app.get("/blog", (req, res) => {
-  console.log(blogs);
-  res.render("blog-list", { blogs: blogs });
-});
+//HALAMAN BLOG
+app.get("/blog", renderBlog);
 
 app.get("/blog-create", (req, res) => {
   res.render("blog-create");
 });
 
 //SUBMIT NEW BLOG
-app.post("/blog-create", (req, res) => {
-  // const title = req.body.title;
-  // const content = req.body.content;
+app.post("/blog-create", createBlogs);
 
-  const { title, content } = req.body; // ttile dan content adalah properti milik req.body
-  console.log("Judulnya title", title);
-  console.log("Content nya ", content);
+//RENDER EDIT BLOG
+app.get("/blog-edit/:id", renderBlogEdit);
 
-  let image = "https://picsum.photos/200/120";
-  let blog = {
-    title: title,
-    content: content,
-    image: image,
-    author: "Leo G",
-    postedAt: new Date(),
-  };
+//SUBMIT/SAVE EDIT BLOG
+app.patch("/blog-update/:id", updateBlog);
 
-  blogs.push(blog);
+//DELETE EXISTING BLOG
+app.delete("/blog/:id", deleteBlog);
 
-  res.redirect("/blog");
-});
-
-app.get("/blog/:id", (req, res) => {
-  res.render("blog-detail");
-});
+//blog detail
+app.get("/blog/:id", renderBlogDetail);
 
 app.get("/testimonial", (req, res) => {
   res.render("testimonial");
@@ -79,11 +74,11 @@ app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
-//  REQUEST PARAMS
-app.get("/about/:id", (req, res) => {
-  const id = req.params.id;
-  res.send(`Halo ini halaman tentang ${id}`);
-});
+// //  REQUEST PARAMS
+// app.get("/about/:id", (req, res) => {
+//   const id = req.params.id;
+//   res.send(`Halo ini halaman tentang ${id}`);
+// });
 
 //REQUEST QUERY
 
@@ -91,7 +86,6 @@ app.get("/blog", (req, res) => {
   //   const title = req.query.title;
   //   const author = req.query.author;
   //   const year = req.query.year;
-
   const { title, author, year } = req.query;
   res.send(`Ini Halaman Blog ${title} dengan author ${author} Tahun ${year}`);
 });

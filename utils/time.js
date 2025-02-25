@@ -34,14 +34,14 @@ function formatDateToWIB(date) {
 
 function getRelativeTime(postTime) {
   let now = new Date();
-  console.log("Waktu Sekarang :", now);
-  console.log("Waktu User Post :", postTime);
+  // console.log("Waktu Sekarang :", now);
+  // console.log("Waktu User Post :", postTime);
 
   let diffTime = now - postTime;
-  console.log("diffTime waktu nya : ", diffTime);
+  // console.log("diffTime waktu nya : ", diffTime);
 
   let diffInSeconds = Math.floor((now - postTime) / 1000);
-  console.log("Ini hasil selisih : ", diffInSeconds);
+  // console.log("Ini hasil selisih : ", diffInSeconds);
 
   if (diffInSeconds < 60) {
     return `${diffInSeconds} Seconds ago`;
