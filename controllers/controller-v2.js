@@ -185,33 +185,34 @@ async function deleteBlog(req, res) {
 
 async function renderBlogCreate(req, res) {
   //render edit
-  const user = req.session.user;
-  console.log("usernya adalah :", user);
-
-  if (user) {
-    res.render("blog-create");
-  } else {
-    res.redirect("/login");
-  }
+  res.render("blog-create");
 }
 
 async function createBlog(req, res) {
-  const { title, content } = req.body; // title dan content adalah properti milik req.body
-  console.log("Judulnya title", title);
-  console.log("Content nya ", content);
+  const user = req.session.user;
 
-  let dummyImage = "https://picsum.photos/200/120";
+  if (!user) {
+    req.flash("error", "Please login.");
+    return res.redirect("/login");
+  }
+  // create blog submission
+  const { title, content } = req.body; // title dan content adalah properti milik req.body
+
+  let dummyImage = "https://picsum.photos/200/150";
+
+  const image = req.file.path;
+  console.log("image yg di upload :", image);
 
   const newBlog = {
     title, // ini sama saja dengan menuliskan title: title
-    content, // ini sama saja dengan menuliskan content: content
-    image: dummyImage,
+    content,
+    authorId: user.id,
+    image: image,
   };
 
-  const resultSubmit = await Blog.create(newBlog);
-  console.log("result creating blog", resultSubmit);
+  const resultSubmit = await Blog.create(newBlog); // apa result nya ketika disubmit, gagal atau berhasil?
 
-  res.redirect("/blog"); //ini adalah url bukan nama file
+  res.redirect("/blog"); // URL, bukan nama file
 }
 
 async function renderBlogEdit(req, res) {
