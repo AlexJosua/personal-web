@@ -5,14 +5,17 @@ const hbs = require("hbs");
 const path = require("path");
 const methodOverride = require("method-override");
 
+// const { renderBlogEdit, updateBlog } = require("./controllers/controller-v1");
+
 const {
   renderBlog,
   renderBlogDetail,
-  renderBlogEdit,
-  createBlogs,
-  updateBlog,
   deleteBlog,
-} = require("./controllers/controller-v1");
+  renderBlogCreate,
+  createBlog,
+  renderBlogEdit,
+  updateBlog,
+} = require("./controllers/controller-v2");
 const { formatDateToWIB, getRelativeTime } = require("./utils/time");
 
 const port = 3000;
@@ -47,12 +50,10 @@ app.get("/index", (req, res) => {
 //HALAMAN BLOG
 app.get("/blog", renderBlog);
 
-app.get("/blog-create", (req, res) => {
-  res.render("blog-create");
-});
+app.get("/blog-create", renderBlogCreate);
 
 //SUBMIT NEW BLOG
-app.post("/blog-create", createBlogs);
+app.post("/blog-create", createBlog);
 
 //RENDER EDIT BLOG
 app.get("/blog-edit/:id", renderBlogEdit);
@@ -72,6 +73,10 @@ app.get("/testimonial", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("contact");
+});
+
+app.get("*", (req, res) => {
+  res.render("page-404");
 });
 
 // //  REQUEST PARAMS
