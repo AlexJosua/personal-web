@@ -1,94 +1,107 @@
-{{#> layout currentPage= "Home"}}
+{{#> layout currentPage= "Home" }}
 
-    <main class="main-content">
-      <!-- profile-card -->
-      <section id="card-section">
-        <div class="profile-card">
-          <img class="profile-image" src="/img/ernando-ari_169.jpeg" alt="" />
-          <h1 style="color: rgb(228, 228, 49); font-weight: bold">
-            Ernando Ari
-          </h1>
-          <p style="color: rgb(135, 9, 9)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            cupiditate officia omnis sapiente quia iure dolore laudantium error
-            similique dolor cumque eligendi, magni culpa! Debitis quam eius
-            ipsam cumque totam.
-          </p>
-          <table class="table table-striped table-hover">
-            <tr>
-              <th scope="col">Experience</th>
-              <th scope="col">Year</th>
-            </tr>
-            <tr>
-              <td>Develoment Personal Website</td>
-              <td>2025</td>
-            </tr>
-          </table>
-        </div>
-      </section>
+{{#if messages.success}}
+<div class="alert alert-success mx-5 mt-2" role="alert">
+  {{messages.success}}
+</div>
+{{/if}}
 
-      <!-- introduction section -->
-      <section id="introduction">
-        <div id="what-i-do">
-          <h1>What I Can Do For You?</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sit
-            soluta explicabo non similique quo ex natus doloremque. Veritatis
-            magnam, vel possimus eveniet impedit harum hic quis accusantium
-            quaerat libero beatae voluptas repudiandae aperiam sequi nisi
-            officia sint magni pariatur molestias. Beatae ipsam repellat ducimus
-            fuga omnis voluptatem dolor ut deserunt debitis, vitae odio placeat,
-            obcaecati molestiae assumenda ipsa deleniti
-          </p>
-        </div>
-        <!-- TECHNOLOGIES -->
-        <div id="technologies">
-          <div id="frontend">
-            <img src="/img/js.png" alt="" />
-            <h2>Frontend Developer</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              labore perferendis ratione suscipit at incidunt?
-            </p>
-          </div>
-          <div id="Version-control">
-            <img src="/img/git.png" alt="" />
-            <h2>Version Control</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus
-              voluptate sit perspiciatis eius, maxime quae.
-            </p>
-          </div>
-          <div id="automated-deployment">
-            <img src="/img/deploy.png" alt="" />
-            <h2>Automated Deployment</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum mollitia incidunt amet excepturi maxime ex!
-            </p>
-          </div>
-        </div>
-        <!-- SOCIALS!!!  -->
-        <div id="socials">
-          <h2>Find Me On</h2>
-          <div>
-            <a href="#">
-              <img src="/img/facebook.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="/img/twitter.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="/img/instagram.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="/img/mail.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="/img/whatsapp.png" alt="" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-   {{/layout}}
+{{#if messages.warning}}
+<div class="alert alert-warning mx-5 mt-2" role="alert">
+  {{messages.warning}}
+</div>
+{{/if}}
+
+
+<main class="main-content">
+  <!-- profile-card -->
+  <section id="card-section">
+    <div class="profile-card">
+      <img class="profile-image" src="/img/ernando-ari_169.jpeg" alt="" />
+      <h1 style="color: rgb(228, 228, 49); font-weight: bold">
+        Ernando Ari
+      </h1>
+      <p style="color: rgb(135, 9, 9)">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+        cupiditate officia omnis sapiente quia iure dolore laudantium error
+        similique dolor cumque eligendi, magni culpa! Debitis quam eius
+        ipsam cumque totam.
+      </p>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th scope="col">Experience</th>
+          <th scope="col">Year</th>
+        </tr>
+        <tr>
+          <td>Develoment Personal Website</td>
+          <td>2025</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- introduction section -->
+  <section id="introduction">
+    <div id="what-i-do">
+      <h1>What I Can Do For You?</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sit
+        soluta explicabo non similique quo ex natus doloremque. Veritatis
+        magnam, vel possimus eveniet impedit harum hic quis accusantium
+        quaerat libero beatae voluptas repudiandae aperiam sequi nisi
+        officia sint magni pariatur molestias. Beatae ipsam repellat ducimus
+        fuga omnis voluptatem dolor ut deserunt debitis, vitae odio placeat,
+        obcaecati molestiae assumenda ipsa deleniti
+      </p>
+    </div>
+    <!-- TECHNOLOGIES -->
+    <div id="technologies">
+      <div id="frontend">
+        <img src="/img/js.png" alt="" />
+        <h2>Frontend Developer</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+          labore perferendis ratione suscipit at incidunt?
+        </p>
+      </div>
+      <div id="Version-control">
+        <img src="/img/git.png" alt="" />
+        <h2>Version Control</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus
+          voluptate sit perspiciatis eius, maxime quae.
+        </p>
+      </div>
+      <div id="automated-deployment">
+        <img src="/img/deploy.png" alt="" />
+        <h2>Automated Deployment</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Voluptatum mollitia incidunt amet excepturi maxime ex!
+        </p>
+      </div>
+    </div>
+    <!-- SOCIALS!!!  -->
+    <div id="socials">
+      <h2>Find Me On</h2>
+      <div>
+        <a href="#">
+          <img src="/img/facebook.png" alt="" />
+        </a>
+        <a href="#">
+          <img src="/img/twitter.png" alt="" />
+        </a>
+        <a href="#">
+          <img src="/img/instagram.png" alt="" />
+        </a>
+        <a href="#">
+          <img src="/img/mail.png" alt="" />
+        </a>
+        <a href="#">
+          <img src="/img/whatsapp.png" alt="" />
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+{{/layout}}

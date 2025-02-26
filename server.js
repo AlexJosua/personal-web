@@ -4,10 +4,21 @@ const app = express();
 const hbs = require("hbs");
 const path = require("path");
 const methodOverride = require("method-override");
+const flash = require("express-flash");
+const session = require("express-session");
 
 // const { renderBlogEdit, updateBlog } = require("./controllers/controller-v1");
 
 const {
+  renderHome,
+  authLogin,
+  authRegister,
+  authLogout,
+  renderLogin,
+  renderRegister,
+  renderContact,
+  renderTestimonials,
+  renderError,
   renderBlog,
   renderBlogDetail,
   deleteBlog,
@@ -23,10 +34,20 @@ const port = 3000;
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views"));
 
+//module apa saja yang digunakan di dalam express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
 app.use(methodOverride("_method"));
+app.use(flash());
+app.use(
+  session({
+    name: "my-session",
+    secret: "qpwoeiruty1111",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 hbs.registerHelper("equal", function (a, b) {
@@ -37,15 +58,19 @@ hbs.registerHelper("formatDateToWIB", formatDateToWIB);
 hbs.registerHelper("getRelativeTime", getRelativeTime);
 
 // HALAMAN HOME
-app.get("/", (req, res) => {
-  // res.send("Hello Express! Ini Halaman Saya yang pertama");
-  res.render("index");
-});
+app.get("/", renderHome);
 
-app.get("/index", (req, res) => {
-  // res.send("Hello Express! Ini Halaman Saya yang pertama");
-  res.render("index");
-});
+app.get("/index", renderHome);
+
+app.get("/login", renderLogin);
+
+app.get("/register", renderRegister);
+
+app.get("/logout", authLogout);
+
+app.post("/login", authLogin);
+
+app.post("/register", authRegister);
 
 //HALAMAN BLOG
 app.get("/blog", renderBlog);
@@ -67,17 +92,11 @@ app.delete("/blog/:id", deleteBlog);
 //blog detail
 app.get("/blog/:id", renderBlogDetail);
 
-app.get("/testimonial", (req, res) => {
-  res.render("testimonial");
-});
+app.get("/testimonial", renderTestimonials);
 
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
+app.get("/contact", renderContact);
 
-app.get("*", (req, res) => {
-  res.render("page-404");
-});
+app.get("*", renderError);
 
 // //  REQUEST PARAMS
 // app.get("/about/:id", (req, res) => {

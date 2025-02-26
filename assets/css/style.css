@@ -82,6 +82,28 @@ nav {
   padding: 50px;
 }
 
+/* AUTHENTICATION  */
+.auth-form {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.auth-form button {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  background-color: #0077b6;
+  color: #caf0f8;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background-color: #005f8a;
+  color: #ffffff;
+}
+
 /* Profile Card */
 
 #card-section {
