@@ -1,37 +1,46 @@
 {{#> layout currentPage= "Register"}}
 
 <!-- REGISTER -->
-<form id="register-form" action="/register" method="post" class="auth-form">
-    <h1 class="mb-5 text-center">Register</h1>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg rounded-lg" style="width: 500px; border: none;">
+        <h1 class="mb-4 text-center">📝 Register</h1>
 
-    <div class="input-group mb-3">
-        <input name="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="name"
-            placeholder="name" id="name" required />
-    </div>
+        <form id="register-form" action="/register" method="post" class="auth-form">
+            <div class="mb-3">
+                <input name="name" type="text" class="form-control p-3 rounded" placeholder="Full Name" id="name"
+                    required />
+            </div>
 
-    <div class="input-group mb-3">
-        <input name="email" type="email" class="form-control" aria-label="Sizing example input" aria-describedby="email"
-            placeholder="email" id="email" required />
-    </div>
+            <div class="mb-3">
+                <input name="email" type="email" class="form-control p-3 rounded" placeholder="Email" id="email"
+                    required />
+            </div>
 
-    <div class="input-group mb-3">
-        <input name="password" type="password" class="form-control" aria-label="Sizing example input"
-            aria-describedby="password" placeholder="password" id="password" required />
-    </div>
+            <div class="mb-3">
+                <input name="password" type="password" class="form-control p-3 rounded" placeholder="Password"
+                    id="password" required />
+            </div>
 
-    <div class="input-group mb-3">
-        <input name="confirmPassword" type="password" class="form-control" aria-label="Sizing example input"
-            aria-describedby="confirmPassword" placeholder="confirmPassword" id="confirm-password" required />
+            <div class="mb-3">
+                <input name="confirmPassword" type="password" class="form-control p-3 rounded"
+                    placeholder="Confirm Password" id="confirm-password" required />
+            </div>
+
+            {{!-- Pesan error --}}
+            {{#if messages.error}}
+            <div class="alert alert-danger" role="alert">
+                {{messages.error}}
+            </div>
+            {{/if}}
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success w-100 p-2 rounded-pill">
+                    Register
+                </button>
+            </div>
+        </form>
     </div>
-    {{#if messages.error}}
-    <div class="alert alert-danger" role="alert">
-        {{messages.error}}
-    </div>
-    {{/if}}
-    <div class="text-center mt-4">
-        <button type="submit">Register</button>
-    </div>
-</form>
+</div>
 
 
 {{/layout}}

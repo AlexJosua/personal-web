@@ -15,29 +15,30 @@
         <img src="{{this.image}}" alt="" />
       </div>
       <div class="blog-item-text">
-        {{#if (equal ../user.id this.authorId)}}
-        <div class="blog-item-buttons">
-          <a href="/blog-edit/{{this.id}}" class="btn btn-primary">Edit Blog</a>
-          <form style="display: inline;" action="/blog/{{this.id}}?_method=DELETE" method="post">
-            <button onclick="return confirm('are you sure you want to delete?')" class="btn btn-danger"
-              type="submit">Delete Blog</button>
-          </form>
-        </div>
-        {{/if}}
         <a href="blog/{{this.id}}" style="text-decoration: none">
           <h1 class="blog-item-title">{{this.title}}</h1>
         </a>
-        <p>{{formatDateToWIB this.createdAt}} | {{this.user.name}} </p>
-        <p>Last Edit : {{formatDateToWIB this.updatedAt}} </p>
+        <p>{{formatDateToWIB this.createdAt}} | {{this.user.name}}</p>
+        <p>Last Edit : {{formatDateToWIB this.updatedAt}}</p>
         <p>
           {{this.content}}
         </p>
         <p class="blog-item-relative-time">{{getRelativeTime this.createdAt}}</p>
       </div>
+      {{#if (equal ../user.id this.authorId)}}
+      <div class="blog-item-buttons">
+        <a href="/blog-edit/{{this.id}}" class="btn btn-primary">Edit Blog</a>
+        <form style="display: inline;" action="/blog/{{this.id}}?_method=DELETE" method="post">
+          <button onclick="return confirm('are you sure you want to delete?')" class="btn btn-danger"
+            type="submit">Delete Blog</button>
+        </form>
+      </div>
+      {{/if}}
     </article>
     {{/each}}
   </section>
 </main>
+
 
 {{!--
 <script src="/js/blog.js"></script> --}}
